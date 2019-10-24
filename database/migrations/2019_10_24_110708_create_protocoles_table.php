@@ -16,7 +16,7 @@ class CreateProtocolesTable extends Migration
         Schema::create('protocoles', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('nomProtocol',70);
-            $table->string('descriptionProtocole');
+            $table->string('descriptionProtocole')->nullable();
             $table->timestamps();
         });
     }
