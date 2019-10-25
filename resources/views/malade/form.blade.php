@@ -17,8 +17,12 @@
     <div class="col-md-5">
         <div class="form-group">
             <label for="">Protocoles</label>
-            <input type="text" class="form-control text-uppercase" name="nom"  id="nom" style="text-transform: capitalize;" value="{{old('nom') ?? $maladeId->nom}}">
-            @error('nom') <small  class="form-text  text-danger"> {{$message}} </small> @enderror
+            <select name="statutMalade" id="religion" class="form-control">
+                @foreach($protocole as $proto)
+                <option value="{{$proto->nomProtocol}}" @if(old('statutMalade',$maladeId->protocole) == "$proto->nomProtocol") selected @endif>{{$proto->nomProtocol}}</option>
+
+            @endforeach
+            </select>
         </div>
 
     </div>
@@ -92,12 +96,8 @@
     <div class="col-md-4">
         <div class="form-group">
             <label for="">Numeéro de Téléphone 2</label>
-            <select name="statutMalade" id="religion" class="form-control">
-                <option value="1" @if(old('statutMalade',$maladeId->statutMalade) == '1') selected @endif>Traitement en cours</option>
-                <option value="2" @if(old('statutMalade',$maladeId->statutMalade) == '2') selected @endif>En rémission</option>
-                <option value="3" @if(old('statutMalade',$maladeId->statutMalade) == '3') selected @endif >Guéri</option>
-                <option value="4" @if(old('statutMalade',$maladeId->statutMalade) == '4') selected @endif>Décédé</option>
-            </select>
+            <input type="text" class="form-control" name="numTel1" value="{{old('numTel1') ?? $maladeId->numTel1}}">
+            @error('numTel1') <small  class="form-text  text-danger"> {{$message}} </small> @enderror
         </div>
     </div>
 

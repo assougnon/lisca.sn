@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Malade;
+use App\Protocole;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
@@ -45,7 +46,8 @@ class MaladeController extends Controller
     {
         //
         $maladeId = new Malade();
-        return view('malade.create',compact('maladeId'));
+        $protocole = Protocole::all();
+        return view('malade.create',compact('maladeId','protocole'));
     }
 
     /**
