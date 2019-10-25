@@ -50,9 +50,9 @@
                                     </a>
                                 </td>
                                 <td>
-                                    <form action="" method="post" id="formSuppression">
+                                    <form action="medicaments/{{$medica->id}}" method="post" id="formSuppression">
                                         @method('DELETE')
-                                        <a href="" class="btn btn-danger" id="confirmationB">
+                                        <a href="" class="btn btn-danger confirmationB" >
                                             supprimer
                                         </a>
 

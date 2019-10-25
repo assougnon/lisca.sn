@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="d-xl-flex align-items-center justify-content-between mb-4">
+
     <div class="card shadow mb-4">
         <div class="card-header py-3">
             <h6 class="m-0 font-weight-bold text-primary">Liste de tous les patients</h6>
@@ -44,11 +44,11 @@
                                 </a>
                             </td>
                             <td>
-                                <form action="/malades/{{$mala->id}}" method="post" id="formSuppression">
+                                <form action="/malades/{{$mala->id}}" method="post" id="formSuppression" >
                                     @method('DELETE')
-                                    <a href="" class="btn btn-danger" id="confirmationB">
+                                    <button href="" class="btn btn-danger confirmationB" >
                                         supprimer
-                                    </a>
+                                    </button>
 
                                     @csrf
                                 </form>
@@ -60,8 +60,8 @@
             </div>
         </div>
     </div>
-</div>
-    
+
+
 
 
 

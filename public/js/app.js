@@ -85000,7 +85000,7 @@ $(document).ready(function () {
       }
     }
   });
-  $('#confirmationB').on('click', function (e) {
+  $('.confirmationB').on('click', function (e) {
     e.preventDefault();
     Swal.fire({
       title: 'Etes vous sur?',

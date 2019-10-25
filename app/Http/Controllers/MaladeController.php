@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Hopital;
 use App\Malade;
 use App\Protocole;
 use Illuminate\Http\Request;
@@ -47,7 +48,9 @@ class MaladeController extends Controller
         //
         $maladeId = new Malade();
         $protocole = Protocole::all();
-        return view('malade.create',compact('maladeId','protocole'));
+        $hopitaux = Hopital::all();
+        $variables = array("maladeId","protocole","hopitaux");
+        return view('malade.create',compact($variables));
     }
 
     /**
@@ -88,8 +91,9 @@ class MaladeController extends Controller
      */
     public function edit(Malade $maladeId)
     {
-
-        return view('malade.edit',compact('maladeId'));
+        $protocole = Protocole::all();
+        $hopitaux = Hopital::all();
+        return view('malade.edit',compact('maladeId','protocole',"hopitaux"));
     }
 
 
@@ -162,6 +166,9 @@ class MaladeController extends Controller
             'pccb2' =>'',
             'habitat' =>'',
             'statuthabitat' =>'',
+            'hopitalSuivi' =>'',
+            'protocole' =>'',
+            'lieu_de_Provenance' =>'required',
             'datenaiss' =>'required',
             'statutMalade' =>'required',
             'image'=>'sometimes|required|image',

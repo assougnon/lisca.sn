@@ -17,9 +17,9 @@
     <div class="col-md-5">
         <div class="form-group">
             <label for="">Protocoles</label>
-            <select name="statutMalade" id="religion" class="form-control">
+            <select name="protocole" id="religion" class="form-control">
                 @foreach($protocole as $proto)
-                <option value="{{$proto->nomProtocol}}" @if(old('statutMalade',$maladeId->protocole) == "$proto->nomProtocol") selected @endif>{{$proto->nomProtocol}}</option>
+                <option value="{{$proto->nomProtocol}}" @if(old('protocole',$maladeId->protocole) == "$proto->nomProtocol") selected @endif>{{$proto->nomProtocol}}</option>
 
             @endforeach
             </select>
@@ -79,6 +79,29 @@
 
 </div>
 <div class="row">
+    <div class="col-md-6">
+        <div class="form-group">
+            <label for="">Hopital de Suivi</label>
+            <select name="hopitalSuivi" id="religion" class="form-control">
+                @foreach($hopitaux as $hosto)
+                    <option value="{{$hosto->nom_hopital}}" @if(old('hopitalSuivi',$hosto->nom_hopital) == $maladeId->hopitalSuivi) selected @endif>{{$hosto->nom_hopital}}</option>
+
+                @endforeach
+            </select>
+            @error('hopitalSuivi') <small  class="form-text  text-danger"> {{$message}} </small> @enderror
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-group">
+            <label for="">Lieu de provenance</label>
+            <input type="text" class="form-control text-uppercase" name="lieu_de_Provenance"  id="nom" style="text-transform: capitalize;" value="{{old('lieu_de_Provenance') ?? $maladeId->lieu_de_Provenance}}">
+            @error('lieu_de_Provenance') <small  class="form-text  text-danger"> {{$message}} </small> @enderror
+        </div>
+    </div>
+</div>
+<hr class="sidebar-divider bg-info">
+
+<div class="row">
     <div class="col-md-4">
         <div class="form-group">
             <label for="">Numéro CIN</label>
@@ -128,7 +151,7 @@
         </div>
     </div>
 </div>
-
+<hr class="sidebar-divider bg-info">
 <div class="row">
     <div class="col-md-3">
         <div class="form-group">
@@ -168,6 +191,7 @@
         </div>
     </div>
 </div>
+<hr class="sidebar-divider bg-info">
 <div class="row">
     <div class="col-md-4">
         <div class="form-group">

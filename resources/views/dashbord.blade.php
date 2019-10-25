@@ -64,15 +64,15 @@
                 <i class="fas fa-notes-medical fa-4x"></i>
                 <span>Patients</span>
             </a>
-            <div id="collapseTwo" class="collapse @if (Route::current()->uri =='malades' || Route::current()->uri =='malades/create') show @endif" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div id="collapseTwo" class="collapse @if (Route::current()->uri =='malades' || Route::current()->uri =='malades/create'||  Route::current()->uri =="hopitaux/create") show @endif" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Options pour le Patient:</h6>
                     <a class="collapse-item  @if (Route::current()->uri =='malades') active @endif"  href="/malades"><i class="fas fa-align-justify"></i> Liste Patients</a>
                     <a class="collapse-item @if (Route::current()->uri =='malades/create') active @endif" href="/malades/create"><i class="fas fa-plus"></i> Ajouter Patient</a>
                     <a class="collapse-item @if (Route::current()->uri =='') active @endif" href="/malades/create"><i class="fas fa-align-justify"></i> Liste Protocoles</a>
                     <a class="collapse-item @if (Route::current()->uri =='') active @endif" href="/malades/create"><i class="fas fa-plus"></i> Aouter Protocoles</a>
-                    <a class="collapse-item @if (Route::current()->uri =='') active @endif" href="/malades/create"><i class="fas fa-align-justify"></i> liste  Hopitaux</a>
-                    <a class="collapse-item @if (Route::current()->uri =='') active @endif" href="/malades/create"><i class="fas fa-plus"></i> Aouter Hopital</a>
+                    <a class="collapse-item @if (Route::current()->uri =='hopitaux') active @endif" href="/hopitaux"><i class="fas fa-align-justify"></i> liste  Hopitaux</a>
+                    <a class="collapse-item @if (Route::current()->uri =='hopitaux/create') active @endif" href="/hopitaux/create"><i class="fas fa-plus"></i> Aouter Hopital</a>
                 </div>
             </div>
         </li>

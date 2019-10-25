@@ -45,8 +45,14 @@ Route::get('fournisseurs/{idFournisseur}/edit','FournisseurController@edit');
 Route::patch('fournisseurs/{idFournisseur}','FournisseurController@update');
 Route::delete('fournisseurs/{idFournisseur}','FournisseurdaController@destroy');
 
-
-
+/*rout pour les hopitaux*/
+Route::get('hopitaux','HopitalController@index');
+Route::get('hopitaux/create','HopitalController@create');
+Route::post('hopitaux','HopitalController@store');
+Route::get('hopitaux/{idHopital}','HopitalController@show');
+Route::get('hopitaux/{idHopital}/edit','HopitalController@edit');
+Route::patch('hopitaux/{idHopital}','HopitalController@update');
+Route::delete('hopitaux/{idHopital}','HopitalController@destroy');
 
 
 Auth::routes();

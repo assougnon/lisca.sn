@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Fournisseur;
+use App\Malade;
 use App\Medicament;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Intervention\Image\Facades\Image;
 
 class MedicamentController extends Controller
@@ -82,15 +84,13 @@ class MedicamentController extends Controller
         //
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
+
+    public function destroy(Medicament $idMedicament)
     {
-        //
+        Storage::delete('public/'.$idMedicament->image);
+
+        $idMedicament->delete();
+        return redirect('medicaments');
     }
 
     private function validateData(){
