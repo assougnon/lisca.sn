@@ -102,6 +102,7 @@ class MedicamentController extends Controller
             'dosageMedicament' =>'required',
             'quantiteStockMed' =>'required',
             'seuilMinMed' =>'required',
+            'prixMedicament' =>'required',
             'conditionnement' =>'required',
             'provenanceMed' =>'required',
             'imageMedicament' =>'required',

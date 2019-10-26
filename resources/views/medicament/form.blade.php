@@ -15,8 +15,8 @@
     </div>
     <div class="col-md-3">
         <div class="form-group">
-            <label for="">Forme Galinique</label>
-            <input type="text" class="form-control text-capitalize" name="formeGalinique" value="{{old('formeGalinique') ?? $idMedicament->formeGalinique}}">
+            <label for="">Forme Galénique</label>
+            <input type="text" class="form-control text-capitalize" name="formeGalinique" value="{{old('formeGalinique') ?? $idMedicament->formeGalinique}}" placeholder="(comprimé, gélule, sirop, etc.)">
             @error('formeGalinique') <small  class="form-text  text-danger"> {{$message}} </small> @enderror
         </div>
     </div>
