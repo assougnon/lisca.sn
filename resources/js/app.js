@@ -55,12 +55,16 @@ $(document).ready(function () {
             confirmButtonText: 'Oui, je supprime!'
         }).then((result) => {
             if (result.value) {
-                $('#formSuppression').submit();
+               var resA = $(this).attr('name');
                 Swal.fire(
-                    'Supprimer!',
-                    'Le patient va être supprimer.',
+                    'Supression !',
+                    ' '+resA+' va être supprimer.',
                     'success'
-                );
+                ).then((result)=>{
+                    var resA = $(this).attr('id');
+
+                    $("#"+resA).submit();
+                });
 
             }
         });

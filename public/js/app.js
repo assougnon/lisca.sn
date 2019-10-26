@@ -85001,6 +85001,8 @@ $(document).ready(function () {
     }
   });
   $('.confirmationB').on('click', function (e) {
+    var _this = this;
+
     e.preventDefault();
     Swal.fire({
       title: 'Etes vous sur?',
@@ -85012,8 +85014,11 @@ $(document).ready(function () {
       confirmButtonText: 'Oui, je supprime!'
     }).then(function (result) {
       if (result.value) {
-        $('#formSuppression').submit();
-        Swal.fire('Supprimer!', 'Le patient va être supprimer.', 'success');
+        var resA = $(_this).attr('name');
+        Swal.fire('Supression !', ' ' + resA + ' va être supprimer.', 'success').then(function (result) {
+          var resA = $(_this).attr('id');
+          $("#" + resA).submit();
+        });
       }
     });
   });

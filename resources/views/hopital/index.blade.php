@@ -30,16 +30,16 @@
                                 <td>{{$hospi->adresse_hopital}}</td>
 
                                 <td>
-                                    <a href="malades/{{$hospi->id}}/edit" class="btn btn-warning ">
+                                    <a href="hopitaux/{{$hospi->id}}/edit" class="btn btn-warning ">
                                         <span class="text">Modifier</span>
                                     </a>
                                 </td>
                                 <td>
-                                    <form action="" method="post" id="formSuppression">
+                                    <form action="/hopitaux/{{$hospi->id}}" method="post" id="{{$hospi->id}}" >
                                         @method('DELETE')
-                                        <a href="" class="btn btn-danger confirmationB" >
+                                        <button href="" class="btn btn-danger confirmationB" id="{{$hospi->id}}" name="{{$hospi->nom_hopital}}">
                                             supprimer
-                                        </a>
+                                        </button>
 
                                         @csrf
                                     </form>

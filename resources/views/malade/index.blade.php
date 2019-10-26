@@ -9,7 +9,7 @@
         </div>
         <div class="card-body">
             <div class="table-responsive">
-                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0" >
+                <table class="table table-striped table-dark" id="dataTable" width="100%" cellspacing="0" >
                     <thead>
                     <tr>
                         <th>Num</th>
@@ -44,9 +44,9 @@
                                 </a>
                             </td>
                             <td>
-                                <form action="/malades/{{$mala->id}}" method="post" id="formSuppression" >
+                                <form action="/malades/{{$mala->id}}" method="post" id="{{$mala->id}}" >
                                     @method('DELETE')
-                                    <button href="" class="btn btn-danger confirmationB" >
+                                    <button href="" class="btn btn-danger confirmationB" id="{{$mala->id}}" name="{{$mala->prenom}}">
                                         supprimer
                                     </button>
 
