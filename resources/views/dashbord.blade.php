@@ -16,15 +16,15 @@
 
     <title>Lisca APP</title>
 
-    <!-- Custom fonts for this template-->
 
-
-    <!-- Custom styles for this template-->
 
 
 </head>
 
 <body id="page-top">
+
+
+
 
 <!-- Page Wrapper -->
 <div id="wrapper">
@@ -376,11 +376,12 @@
             <!-- End of Topbar -->
 
             <!-- Begin Page Content -->
-            <div class="container-fluid" id="app">
+            <div class="container-fluid" >
                 <div class="row">
                     <div class="col">
 
                         <h3 class="font-weight-bold " style="color: #c4218e">Ligue Sénégalaise Contre le Cancer</h3>
+
                     </div>
                 </div>
                 <!-- Page Heading -->
@@ -390,13 +391,13 @@
                 </div>
 
 
-                <div class="row">
 
-
+                <div id="app">
+                @yield('content')
                 </div>
 
 
-                @yield('content')
+
 
 
 

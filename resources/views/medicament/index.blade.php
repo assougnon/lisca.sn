@@ -11,21 +11,21 @@
                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0" >
                         <thead>
                         <tr>
-                            <th>IdMed</th>
-                            <th>image</th>
-                            <th>Nom Médicament </th>
-                            <th>Forme Galinique</th>
-                            <th>Dosage</th>
-                            <th>Prix unitaire</th>
-                            <th>Qte en Stock</th>
-                            <th>Prix Total</th>
+                            <th scope="col">IdMed</th>
+                            <th scope="col">image</th>
+                            <th scope="col">Nom Médicament </th>
+                            <th scope="col">Forme Galinique</th>
+                            <th scope="col">Dosage</th>
+                            <th scope="col">Prix unitaire</th>
+                            <th scope="col">Qte en Stock</th>
+                            <th scope="col">Prix Total</th>
 
-                            <th>Seuil Min</th>
+                            <th scope="col">Seuil Min</th>
 
-                            <th>Conditionnement</th>
-                            <th>Provenance</th>
-                            <th>Modifier</th>
-                            <th>Supprimer</th>
+                            <th scope="col">Conditionnement</th>
+                            <th scope="col">Provenance</th>
+                            <th scope="col">Modifier</th>
+                            <th scope="col">Supprimer</th>
                         </tr>
                         </thead>
 
@@ -61,8 +61,29 @@
                                 </td>
                             </tr>
                       @endforeach
+
                         </tbody>
                     </table>
+                    <table class="table table-bordered mt-5">
+                        <thead>
+                        <tr>
+
+                            <th scope="col">Produits en stock</th>
+                            <th scope="col">Total prix</th>
+
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+
+                            <td>{{$nbrMedicament}}</td>
+                            <th>{{$prixTotal}} Fr CFA</th>
+
+                        </tr>
+
+                        </tbody>
+                    </table>
+
                 </div>
             </div>
         </div>

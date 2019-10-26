@@ -53,12 +53,7 @@ class MaladeController extends Controller
         return view('malade.create',compact($variables));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+
     public function store()
     {
         //
@@ -83,12 +78,6 @@ class MaladeController extends Controller
     }
 
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Malade  $malade
-     * @return \Illuminate\Http\Response
-     */
     public function edit(Malade $maladeId)
     {
         $protocole = Protocole::all();
@@ -97,10 +86,7 @@ class MaladeController extends Controller
     }
 
 
-    /**
-     * @param Malade $maladeId
-     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
-     */
+
     public function update(Malade $maladeId)
     {
 
@@ -119,11 +105,7 @@ class MaladeController extends Controller
     }
 
 
-    /**
-     * @param Malade $maladeId
-     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
-     * @throws \Exception
-     */
+
     public function destroy(Malade $maladeId)
 
     {
@@ -134,6 +116,19 @@ class MaladeController extends Controller
         return redirect('/malades');
     }
 
+    public function protocole(){
+        $protocoles = Protocole::all();
+        return view('protocole.index',compact('protocoles'));
+    }
+
+    public function createProtocole(){
+        $protocole = new Protocole();
+        return view('malade.protocoleCreate',compact('protocole'));
+    }
+    public function saveProtocole(){
+        Protocole::create($this->validateProtocole());
+        return redirect('malades/create');
+    }
     private function storeImage($malade)
     {
         if (\request()->has('image')){
@@ -181,4 +176,13 @@ class MaladeController extends Controller
         $request['nom'] = strtoupper($request['nom']);
         return $request;
     }
+
+    private function validateProtocole(){
+        $request =  \request()->validate([
+            'nomProtocol'=>'required',
+            'descriptionProtocole'=>'required',
+        ]);
+        return $request;
+    }
+
 }

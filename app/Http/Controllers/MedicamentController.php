@@ -6,6 +6,7 @@ use App\Fournisseur;
 use App\Malade;
 use App\Medicament;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 use Intervention\Image\Facades\Image;
 
@@ -20,8 +21,9 @@ class MedicamentController extends Controller
     {
 
             $idMedicament = Medicament::all();
-
-        return view('medicament.index',compact('idMedicament'));
+            $prixTotal = DB::table('medicaments')->sum('prixTotalMedicament');
+            $nbrMedicament = $idMedicament->count();
+        return view('medicament.index',compact('idMedicament','prixTotal','nbrMedicament'));
     }
 
     /**

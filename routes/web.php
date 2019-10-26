@@ -20,6 +20,9 @@ Route::get('test','HomeController@index');
 /*Route pour les patients*/
 Route::get('malades','MaladeController@index')->name('home');
 Route::get('statistiques','MaladeController@stat');
+Route::get('protocoles/create','MaladeController@createProtocole');
+Route::get('protocoles','MaladeController@protocole');
+Route::post('protocoles','MaladeController@saveProtocole');
 Route::get('malades/create','MaladeController@create');
 Route::post('malades','MaladeController@store');
 Route::get('malades/{maladeId}','MaladeController@show');

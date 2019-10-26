@@ -234,55 +234,31 @@ $(document).ready(function () {
     });
 
 
-    var ctx = document.getElementById("myPieChart");
-    var myPieChart = new Chart(ctx, {
-        type: 'doughnut',
-        data: {
-            labels: ["Don", "Partenaires", "Sociale"],
-            datasets: [{
-                data: [55, 30, 15],
-                backgroundColor: ['#4e73df', '#1cc88a', '#36b9cc'],
-                hoverBackgroundColor: ['#2e59d9', '#17a673', '#2c9faf'],
-                hoverBorderColor: "rgba(234, 236, 244, 1)",
-            }],
-        },
-        options: {
-            maintainAspectRatio: false,
-            tooltips: {
-                backgroundColor: "rgb(255,255,255)",
-                bodyFontColor: "#858796",
-                borderColor: '#dddfeb',
-                borderWidth: 1,
-                xPadding: 15,
-                yPadding: 15,
-                displayColors: false,
-                caretPadding: 10,
-            },
-            legend: {
-                display: false
-            },
-            cutoutPercentage: 80,
-        },
-    });
+
+
 });
 
 
 
 
 window.Vue = require('vue');
+window.axios = require('axios');
+
+
+
 
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
  * components and automatically register them with their "basename".
  *
- * Eg. ./components/suppButton.vue -> <example-component></example-component>
+ * Eg. ./components/chartEnquete.vue -> <example-component></example-component>
  */
 
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
-Vue.component('supp-btn', require('./components/suppButton.vue').default);
+Vue.component('chart-enquete', require('./components/chartEnquete.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -290,6 +266,8 @@ Vue.component('supp-btn', require('./components/suppButton.vue').default);
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-const app = new Vue({
-    el: '#app',
-});
+    const app = new Vue({
+        el: '#app',
+    });
+
+
