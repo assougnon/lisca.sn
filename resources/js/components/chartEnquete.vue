@@ -29,7 +29,7 @@
                       <i class="fas fa-circle text-primary"></i> Patients En attente d'enquête
                     </span>
                     <span class="mr-2">
-                      <i class="fas fa-circle text-success"></i> Patients ayant fait l'enquête
+                      <i class="fas fa-circle text-success"></i> Patients ayant fait l'enquête {{name}}
                     </span>
 
                 </div>
@@ -43,15 +43,19 @@
 
 <script>
     export default {
+        data: function(){
+          return {
+              name: 'my legrand',
+          }
+        },
         mounted: function () {
+
             console.log('Component mounted.');
-
-
             axios.post('api/stat', {}).then(function (response) {
 
                 var ctx = document.getElementById("myPieChart");
                 var myPieChart = new Chart(ctx, {
-                    type: 'doughnut',
+                    type: 'pie',
                     data: {
                         labels: ["Avec enquête", "Sans enquête"],
                         datasets: [{
@@ -79,9 +83,10 @@
                         cutoutPercentage: 80,
                     },
                 });
+                return myPieChart;
             });
-
         },
+
 
 
 

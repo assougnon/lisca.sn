@@ -1,4 +1,4 @@
-@extends('dashbord')
+@extends('layouts.app1')
 
 @section('content')
     <div class="d-xl-flex align-items-center justify-content-between mb-4">

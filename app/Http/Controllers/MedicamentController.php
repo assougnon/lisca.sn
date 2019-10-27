@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\AjoutNouveauPatientEvent;
 use App\Fournisseur;
 use App\Malade;
 use App\Medicament;

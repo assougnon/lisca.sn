@@ -1,4 +1,4 @@
-@extends('dashbord')
+@extends('layouts.app1')
 @section('titrecontenu')
     Ajout d'un hopital
 @endsection

@@ -3,16 +3,35 @@
  * includes Vue and other libraries. It is a great starting point when
  * building robust, powerful web applications using Vue and Laravel.
  */
-$ = require('jquery');
+// $ = require('jquery');
+window._ = require('lodash');
+try {
+    window.Popper = require('popper.js').default;
+    window.$ = window.jQuery = require('jquery');
+
+    require('bootstrap');
+} catch (e) {}
+
 
 require('./bootstrap.bundle.min');
-require('bootstrap');
+
 require('jquery.easing');
 require('datatables.net-bs4');
 Swal = require('sweetalert2');
 require('chart.js');
 
 alertify = require('alertifyjs');
+
+import Echo from 'laravel-echo';
+
+window.Pusher = require('pusher-js');
+
+window.Echo = new Echo({
+    broadcaster: 'pusher',
+    key: process.env.MIX_PUSHER_APP_KEY,
+    cluster: process.env.MIX_PUSHER_APP_CLUSTER,
+    encrypted: true
+});
 
 $(document).ready(function () {
     $('#dataTable').DataTable(
@@ -243,6 +262,8 @@ $(document).ready(function () {
 
 window.Vue = require('vue');
 window.axios = require('axios');
+window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
+
 
 
 
@@ -254,11 +275,11 @@ window.axios = require('axios');
  *
  * Eg. ./components/chartEnquete.vue -> <example-component></example-component>
  */
-
-// const files = require.context('./', true, /\.vue$/i)
-// files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
+// const files = require.context('./', true, /\.vue$/i);
+// files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default));
 
 Vue.component('chart-enquete', require('./components/chartEnquete.vue').default);
+
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -269,5 +290,9 @@ Vue.component('chart-enquete', require('./components/chartEnquete.vue').default)
     const app = new Vue({
         el: '#app',
     });
+
+
+
+
 
 

@@ -1,4 +1,4 @@
-@extends('dashbord')
+@extends('layouts.app1')
 
 @section('content')
     <div class="card shadow mb-4">

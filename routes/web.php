@@ -15,7 +15,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('test','HomeController@index');
+
+Route::get('test',function (){
+    event(new \App\Events\AjoutNouveauPatientEvent('someone'));
+    return 'event has been sent !';
+});
 
 /*Route pour les patients*/
 Route::get('malades','MaladeController@index')->name('home');
